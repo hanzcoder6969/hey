@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffffff;">
+    <div class="container-fluid">
+        <!-- Logo on the left -->
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" width="150" height="40">
+        </a>
+
+        <!-- Toggler for mobile view -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" 
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar items centered with dropdowns and search form -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+            <ul class="navbar-nav mx-auto gap-3">
+                <!-- Dropdown Items in Center -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mobile
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                        <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Camera Gear
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                        <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Bags
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                        <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Deals
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Sub-item 1</a></li>
+                        <li><a class="dropdown-item" href="#">Sub-item 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Search Form on the Right -->
+            <form class="d-flex align-items-center ms-3" id="search-form">
+                <button class="btn" type="button" id="search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input class="form-control me-2 d-none" type="search" placeholder="Search" aria-label="Search"
+                       id="search-input">
+            </form>
+        </div>
+    </div>
+</nav>

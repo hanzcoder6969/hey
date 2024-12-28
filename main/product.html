@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+<style>
+    /* Add this to your existing styles.css */
+    .navbar-nav .nav-link {
+     transition: color 0.3s ease, background-color 0.3s ease;
+ }
+
+ .navbar-nav .nav-link:hover {
+     color: white;
+     background-color: #a2a5a9;
+     border-radius: 5px;
+ }
+
+ .navbar-nav .nav-item {
+     margin: auto;
+ }
+
+ .navbar-nav .nav-item:last-child {
+     margin: auto;
+ }
+
+ body {
+     padding-top: 60px;
+     /* Adjust this value based on the height of your navbar */
+ }
+
+
+ .hover-effect {
+     transition: transform 0.3s, box-shadow 0.3s;
+     /* Smooth transition */
+ }
+
+ .hover-effect:hover {
+     transform: scale(1.05);
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .navbar {
+    display: flex;
+    justify-content: space-between; /* Distributes space evenly between items */
+    align-items: center; /* Aligns items vertically */
+}
+
+.navbar-nav {
+    flex: 1; /* This allows the navbar items to take up available space */
+    justify-content: center; /* Centers navbar items */
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items when stacked */
+    }
+}
+
+.product-listing {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+    width: calc(20% - 40px);
+    box-sizing: border-box;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.product-description {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 1.25em;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.btn-add-to-cart {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-add-to-cart:hover {
+    background: #218838;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .product-card {
+        width: calc(25% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(33.33% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: calc(100% - 40px);
+    }
+}
+
+.cart-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.cart-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cart-total {
+    margin-top: 20px;
+}
+
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffffff;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src=".images/logo.png" alt="Logo" width="200" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="mx-auto">
+                    <ul class="navbar-nav mb-2 mb-lg-0 d-flex flex-row justify-content-center">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item dropdown mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="true">CATEGORIES</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Cameras</a></li>
+                                <li><a class="dropdown-item" href="#">Camera Lenses</a></li>
+                                <li><a class="dropdown-item" href="#">Pro Audio</a></li>
+                                <li><a class="dropdown-item" href="#">Memory Cards & Media</a></li>
+                                <li><a class="dropdown-item" href="#">Tripods & Supports</a></li>
+                                <li><a class="dropdown-item" href="#">Lighting & Studios</a></li>
+                                <li><a class="dropdown-item" href="#">Camera Bags & Cases</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="true">BRANDS</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">CANON</a></li>
+                                <li><a class="dropdown-item" href="#">NIKON</a></li>
+                                <li><a class="dropdown-item" href="#">FUJIFILM</a></li>
+                                <li><a class="dropdown-item" href="#">SONY</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link" href="#">CONTACT US</a>
+                        </li>
+                    </ul>
+                </div>
+                <form class="d-flex ms-auto" id="search-form">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        id="search-input">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main class="product-listing">
+        <div class="container">
+            <div class="product-card" data-price="999.99">
+                <img src="/20106c08114e17aa367c4a2dd7c5d52b102bf101-3840x2560.jpg" alt="Camera 1" class="product-image">
+                <h2 class="product-title">Premium DSLR Camera</h2>
+                <p class="product-description">Capture stunning photos with our premium DSLR camera.</p>
+                <span class="product-price">$999.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="749.99">
+                <img src="/4028f55cb58686db3770f404a1249fa170ab2f3e-1080x1080.webp" alt="Camera 2" class="product-image">
+                <h2 class="product-title">Compact Mirrorless Camera</h2>
+                <p class="product-description">Lightweight and portable, perfect for travel.</p>
+                <span class="product-price">$749.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="299.99">
+                <img src="/934003d1409aab8fb8ed7842e40574b243a8938e-3280x3280.jpg" alt="Camera 3" class="product-image">
+                <h2 class="product-title">Action Camera</h2>
+                <p class="product-description">Durable and waterproof for adventures.</p>
+                <span class="product-price">$299.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="1499.99">
+                <img src="/63f96bdeb976aa9a1e6e79e65e45e77352d4d6d1-4240x2385 (1).jpg" alt="Camera 4" class="product-image">
+                <h2 class="product-title">Professional Camcorder</h2>
+                <p class="product-description">High-resolution recording for videographers.</p>
+                <span class="product-price">$1,499.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="2299.99">
+                <img src="/20106c08114e17aa367c4a2dd7c5d52b102bf101-3840x2560.webp" alt="Camera 5" class="product-image">
+                <h2 class="product-title">Full Frame Mirrorless</h2>
+                <p class="product-description">Perfect for professional photography.</p>
+                <span class="product-price">$2,299.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="499.99">
+                <img src="/620d914ee38571172c5e944d91d6e1c7b4512be6-1080x1080.jpg" alt="Camera 6" class="product-image">
+                <h2 class="product-title">Point and Shoot Camera</h2>
+                <p class="product-description">Easy to use, ideal for casual photography.</p>
+                <span class="product-price">$499.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="399.99">
+                <img src="/809f30fb51b57ffdcf3631710ec1d741f0c2ef1d-3280x3280.jpg" alt="Camera 7" class="product-image">
+                <h2 class="product-title">360 Degree Camera</h2>
+                <p class="product-description">Capture immersive 360-degree photos.</p>
+                <span class="product-price">$399.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="199.99">
+                <img src="/caff7c027076193bd6fb4af174d4c27bfc4f4436-4077x2293.jpg" alt="Camera 8" class="product-image">
+                <h2 class="product-title">Vintage Film Camera</h2>
+                <p class="product-description">Classic style with modern performance.</p>
+                <span class="product-price">$199.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="349.99">
+                <img src="/cbe33318031b4b1fe535732334b9e926f2eb1003-2500x1667.jpg" alt="Camera 9" class="product-image">
+                <h2 class="product-title">Underwater Camera</h2>
+                <p class="product-description">Capture your underwater adventures.</p>
+                <span class="product-price">$349.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="product-card" data-price="49.99">
+                <img src="/968cb8620b6f2923f450e1669dbe9cac1e5b5750-3000x2250.webp" alt="Camera 10" class="product-image">
+                <h2 class="product-title">Smartphone Camera Lens</h2>
+                <p class="product-description">Enhance your smartphone photography.</p>
+                <span class="product-price">$49.99</span>
+                <button class="btn-add-to-cart">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CameraShop. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-total">
+                <strong>Total: $<span id="total-price">0.00</span></strong>
+            </div>
+        </div>
+    </div>
+<script>
+    let cartCount = 0;
+let totalPrice = 0;
+const cartItems = [];
+
+document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const card = button.closest('.product-card');
+        const title = card.querySelector('.product-title').innerText;
+        const price = parseFloat(card.getAttribute('data-price'));
+
+        cartCount++;
+        totalPrice += price;
+
+        cartItems.push({ title, price });
+
+        updateCartDisplay();
+    });
+});
+
+document.getElementById('cart-button').addEventListener('click', () => {
+    document.getElementById('cart-modal').style.display = 'block';
+});
+
+document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('cart-modal').style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === document.getElementById('cart-modal')) {
+        document.getElementById('cart-modal').style.display = 'none';
+    }
+});
+
+function updateCartDisplay() {
+    document.getElementById('cart-count').innerText = cartCount;
+    document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+
+    const cartItemsList = document.getElementById('cart-items');
+    cartItemsList.innerHTML = ''; // Clear previous items
+
+    cartItems.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = `${item.title} - $${item.price.toFixed(2)}`;
+        cartItemsList.appendChild(li);
+    });
+}
+
+</script>
+
+</body>
+</html>
